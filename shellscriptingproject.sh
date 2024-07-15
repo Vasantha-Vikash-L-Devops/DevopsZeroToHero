@@ -1,5 +1,7 @@
 #!/bin/bash
 
+helper
+
 # GitHub API URL
 API_URL="https://api.github.com"
 
@@ -35,6 +37,14 @@ function list_users_with_read_access {
         echo "$collaborators"
     fi
 }
+
+# Helper Function
+function helper {
+ local command_line_args=2
+ if [[ $# -ne $command_line_args ]]; then
+ echo "Please execute the script with required command line args"
+ fi
+ }
 
 # Main script
 
