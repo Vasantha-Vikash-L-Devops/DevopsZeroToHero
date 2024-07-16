@@ -1,6 +1,25 @@
 #!/bin/bash
 
-helper
+########################################################################################
+#AUTHOR : VASANTHA VIKASH L
+#INPUT PARAMETERS : EXPORT USERNAME AND PASSWORD
+#ABOUT : THIS SCRIPT LIST ALL THE USERS WITH READ ACCESS FOR REQUESTED GITHUB REPOSITORY
+#DATE : 16/07/2023
+#VERSION : v1
+########################################################################################
+
+
+# Helper Function
+function helper {
+ command_line_args=2
+ if [[ $# != ${command_line_args} ]]; then
+   echo "Please execute the script with required command line args"
+else
+        echo $#
+ fi
+}
+
+helper $@
 
 # GitHub API URL
 API_URL="https://api.github.com"
@@ -37,14 +56,6 @@ function list_users_with_read_access {
         echo "$collaborators"
     fi
 }
-
-# Helper Function
-function helper {
- local command_line_args=2
- if [[ $# -ne $command_line_args ]]; then
- echo "Please execute the script with required command line args"
- fi
- }
 
 # Main script
 
